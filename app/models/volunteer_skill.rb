@@ -1,5 +1,5 @@
 class Volunteer_Skill < ActiveRecord::Base
-    belongs_to :volunteer
+   has_many :volunteers
 
     def get_skill_name
         self.skill.skill 

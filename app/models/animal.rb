@@ -1,6 +1,7 @@
 class Animal < ActiveRecord::Base
-    belongs_to :project
-    has_many :volunteers, through: :project
+    has_many :projects
+    has_many :volunteers, through: :projects
+    has_many :rescues, through: :projects
     #list all animals
     #list only adoptable animals
     #list only adopted animals

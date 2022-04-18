@@ -1,8 +1,8 @@
 class Project < ActiveRecord::Base
-    has_many :volunteers 
     has_many :rescues
     has_many :animals
     has_many :project_skills
+    has_many :volunteers 
     has_many :volunter_skills, through: :volunteers
 
     #show all projects and their animals

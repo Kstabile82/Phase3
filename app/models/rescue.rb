@@ -1,5 +1,5 @@
 class Rescue < ActiveRecord::Base
-    belongs_to :project
+    has_many :projects
     has_many :volunteers, through: :projects
     has_many :animals, through: :projects
 

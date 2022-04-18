@@ -1,5 +1,6 @@
 class Project_Skill < ActiveRecord::Base
-    belongs_to :project
+    has_many :projects  
+    has_many :project_skills, through: :projects 
 
     #List all the skills
     #Add a skill
