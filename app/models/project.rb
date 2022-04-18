@@ -1,8 +1,9 @@
 class Project < ActiveRecord::Base
-    belongs_to :rescue 
-    has_many :volunteers, through: :rescue
+    has_many :volunteers 
+    has_many :rescues
     has_many :animals
-    has_many :skills, through: :volunteers 
+    has_many :project_skills
+    has_many :volunter_skills, through: :volunteers
 
     #show all projects and their animals
     #find which animals are from a specific project

@@ -1,9 +1,9 @@
 class Volunteer < ActiveRecord::Base
-    belongs_to :rescue 
-    has_many :projects, through: :rescue
-    has_many :animals, through: :projects
+    belongs_to :project
     has_many :volunteer_skills
-    has_many :skills, through: :volunteer_skills
+    has_many :rescues, through: :projects
+    has_many :animals, through: :projects
+    has_many :project_skills, through: :projects
     
    #get list of volunteer names
    #get list of all volunteers and their skills
