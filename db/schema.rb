@@ -10,20 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_10_180024) do
+ActiveRecord::Schema.define(version: 2022_04_19_020950) do
 
   create_table "animals", force: :cascade do |t|
     t.string "breed"
     t.string "name"
     t.boolean "adoption_status"
-    t.integer "project_id"
-    t.integer "volunteer_id"
     t.integer "age"
     t.string "color"
     t.string "sex"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "kind"
+    t.integer "rescue_id"
+  end
+
+  create_table "project_animals", force: :cascade do |t|
+    t.integer "animal_id"
+    t.integer "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "project_volunteers", force: :cascade do |t|
+    t.integer "volunteer_id"
+    t.integer "project_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "projects", force: :cascade do |t|
@@ -41,20 +54,10 @@ ActiveRecord::Schema.define(version: 2022_04_10_180024) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "skills", force: :cascade do |t|
-    t.string "skill"
-  end
-
-  create_table "volunteer_skills", force: :cascade do |t|
-    t.integer "volunteer_id"
-    t.integer "skill_id"
-  end
-
   create_table "volunteers", force: :cascade do |t|
     t.string "name"
     t.string "talents"
     t.string "location"
-    t.integer "rescue_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -1,16 +1,20 @@
 class Volunteer < ActiveRecord::Base
-    has_many :volunteer_skills
-    has_many :projects
-    has_many :rescues, through: :projects
-    has_many :animals, through: :projects
-    has_many :project_skills, through: :projects
-    
-   #get list of volunteer names
-   #get list of all volunteers and their skills
-   #get list of all volunteers and their projects
+    has_many :project_volunteers
+    has_many :projects, through: :project_volunteers 
+    has_many :project_animals, through: :projects
+    has_many :animals, through: :project_animals
+
+   #list all unique volunteers (add rescue ID to volunteers and update this to filter by rescue)
+   def self.show_all
+    Volunteer.all.map do |v|
+       v.name
+    end
+   end
+
    #add a volunteer
-   #update a volunteer's info
-   #find the busiest volunteer with the most projects
-   #find the least busy volunteer with fewest projects
+     #self.create(), post 
+   #update a volunteer
+   #delete a volunteer
+   #find the animals this volunteer works with 
 
 end

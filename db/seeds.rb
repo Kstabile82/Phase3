@@ -4,107 +4,90 @@ Rescue.create(
     name: "AARR", 
     location: "Queens, NY"
     )
-
 Rescue.create(
     name: "LIRRG", 
     location: "Long Island, NY"
     )
-
 Project.create(
     title: "Lexi Fundraiser", 
     proj_type: "Fundraiser"
     )
-
 Project.create(
     title: "Hamilton Beach Rescue", 
     proj_type: "Rescue"
     )
-
 Project.create(
     title: "Facebook Easter Campaign", 
     proj_type: "Social Media Post"
     )
-
 Project.create(
     title: "April Event", 
     proj_type: "Event"
     )
-
 Volunteer.create(
     name: "Karina", 
     location: "Long Island", 
-    rescue_id: 1
     )
-
 Volunteer.create(
     name: "Michelle", 
     location: "Long Island", 
-    rescue_id: 1
     )
-
 Volunteer.create(
     name: "Vivian", 
     location: "Queens, NY", 
-    rescue_id: 1
     )
-
 Animal.create(
     name: "Buddy", 
     sex: "Male", 
-    volunteer_id: 1, 
     color: "White", 
-    project_id: 1, 
     adoption_status: false 
     )
-
 Animal.create(
     name: "Giselle", 
     sex: "Female", 
-    volunteer_id: 3, 
     color: "Brown & White", 
     adoption_status: false 
     )
-
-Skill.create(
-    skill: "Social Media",
+Animal.create(
+    name: "Dexter", 
+    sex: "Male", 
+    color: "Brown & White", 
+    adoption_status: true 
+    )
+Project_Animal.create(
+    project_id: 38,
+    animal_id: 1
 )
-Skill.create(
-    skill: "Fostering",
+Project_Animal.create(
+    project_id: 40,
+    animal_id: 2
 )
-Skill.create(
-    skill: "Fundraising",
+Project_Animal.create(
+    project_id: 39,
+    animal_id: 1
 )
-Skill.create(
-    skill: "Social Media",
+Project_Animal.create(
+    project_id: 40,
+    animal_id: 1
 )
-Skill.create(
-    skill: "Social Media",
-)
-
-Volunteer_Skill.create(
-    skill_id: 1,
-    volunteer_id: 1
-)
-
-Volunteer_Skill.create(
-    skill_id: 2,
+Project_Volunteer.create(
+    project_id: 38, 
     volunteer_id: 3
 )
-
-Volunteer_Skill.create(
-    skill_id: 1,
-    volunteer_id: 3
-)
-Volunteer_Skill.create(
-    skill_id: 1,
-    volunteer_id: 2
-)
-Volunteer_Skill.create(
-    skill_id: 3,
-    volunteer_id: 2
-)
-Volunteer_Skill.create(
-    skill_id: 4,
+Project_Volunteer.create(
+    project_id: 39, 
     volunteer_id: 1
+)
+Project_Volunteer.create(
+    project_id: 39, 
+    volunteer_id: 2
+)
+Project_Volunteer.create(
+    project_id: 40, 
+    volunteer_id: 1
+)
+Project_Volunteer.create(
+    project_id: 40, 
+    volunteer_id: 3
 )
 puts "✅ Done seeding!"
