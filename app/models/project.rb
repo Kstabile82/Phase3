@@ -1,5 +1,4 @@
 class Project < ActiveRecord::Base
-    #belongs to rescue & add rescue ID to seed data?
     has_many :project_animals
     has_many :project_volunteers 
     has_many :animals, through: :project_animals

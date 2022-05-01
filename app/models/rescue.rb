@@ -1,8 +1,8 @@
 class Rescue < ActiveRecord::Base
     has_many :animals
     has_many :project_animals, through: :animals
-    has_many :project_volunteers, through: :projects 
     has_many :projects, through: :project_animals
+    has_many :project_volunteers, through: :projects 
     has_many :volunteers, through: :project_volunteers
 
     #count unique animals with rescue id of id

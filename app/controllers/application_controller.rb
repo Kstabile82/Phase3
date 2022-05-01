@@ -6,9 +6,16 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
- get "/volunteers" do
-  volunteer = Volunteer.all 
-   volunteer.to_json
+ get "/rescues" do
+  rescu = Rescue.all 
+  rescu.to_json
  end
+
+ get '/rescues/:id' do
+   resq = Rescue.find(params[:id])
+   resq.to_json(include: :animals)
+
+ end
+
 
 end
