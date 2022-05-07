@@ -7,87 +7,88 @@ Rescue.create(
 Rescue.create(
     name: "LIRRG", 
     location: "Long Island, NY"
-    )
-Project.create(
-    title: "Lexi Fundraiser", 
-    proj_type: "Fundraiser"
-    )
-Project.create(
-    title: "Hamilton Beach Rescue", 
-    proj_type: "Rescue"
-    )
-Project.create(
-    title: "Facebook Easter Campaign", 
-    proj_type: "Social Media Post"
-    )
-Project.create(
-    title: "April Event", 
-    proj_type: "Event"
-    )
-Volunteer.create(
-    name: "Karina", 
-    location: "Long Island", 
-    )
-Volunteer.create(
-    name: "Michelle", 
-    location: "Long Island", 
-    )
-Volunteer.create(
-    name: "Vivian", 
-    location: "Queens, NY", 
-    )
+    )   
 Animal.create(
     name: "Buddy", 
     sex: "Male", 
     color: "White", 
-    adoption_status: false 
+    adoption_status: false,
+    rescue_id: "#{Rescue.first.id}"
     )
 Animal.create(
     name: "Giselle", 
     sex: "Female", 
     color: "Brown & White", 
-    adoption_status: false 
+    adoption_status: false,
+    rescue_id: "#{Rescue.first.id}"
     )
 Animal.create(
     name: "Dexter", 
     sex: "Male", 
     color: "Brown & White", 
-    adoption_status: true 
+    adoption_status: true,
+    rescue_id: "#{Rescue.first.id}"
     )
+
+    Volunteer.create(
+    name: "Karina", 
+    location: "Long Island", 
+    rescue_id: "#{Rescue.first.id}"
+    )
+Volunteer.create(
+    name: "Michelle", 
+    location: "Long Island", 
+    rescue_id: "#{Rescue.first.id}"
+    )
+Volunteer.create(
+    name: "Vivian", 
+    location: "Queens, NY", 
+    rescue_id: "#{Rescue.first.id}"
+    )
+
 Project_Animal.create(
-    project_id: 38,
-    animal_id: 1
+    animal_id: "#{Animal.first.id}"
+
 )
 Project_Animal.create(
-    project_id: 40,
-    animal_id: 2
-)
-Project_Animal.create(
-    project_id: 39,
-    animal_id: 1
-)
-Project_Animal.create(
-    project_id: 40,
-    animal_id: 1
+    animal_id: "#{Animal.first.id}"
 )
 Project_Volunteer.create(
-    project_id: 38, 
-    volunteer_id: 3
+    volunteer_id: "#{Volunteer.first.id}"
 )
 Project_Volunteer.create(
-    project_id: 39, 
-    volunteer_id: 1
+    volunteer_id: "#{Volunteer.second.id}"
 )
 Project_Volunteer.create(
-    project_id: 39, 
-    volunteer_id: 2
+    volunteer_id: "#{Volunteer.third.id}"
 )
-Project_Volunteer.create(
-    project_id: 40, 
-    volunteer_id: 1
-)
-Project_Volunteer.create(
-    project_id: 40, 
-    volunteer_id: 3
-)
+Project.create(
+    title: "Lexi Fundraiser", 
+    proj_type: "Fundraiser",
+    project_animal_id: "#{Project_Animal.first.id}",
+    project_volunteer_id: "#{Project_Volunteer.first.id}"
+
+    )
+Project.create(
+    title: "Hamilton Beach Rescue", 
+    proj_type: "Rescue",
+    project_animal_id: "#{Project_Animal.first.id}",
+    project_volunteer_id: "#{Project_Volunteer.first.id}"
+
+    )
+Project.create(
+    title: "Facebook Easter Campaign", 
+    proj_type: "Social Media Post",
+    project_animal_id: "#{Project_Animal.first.id}",
+    project_volunteer_id: "#{Project_Volunteer.second.id}"
+
+    )
+Project.create(
+    title: "April Event", 
+    proj_type: "Event",
+    project_animal_id: "#{Project_Animal.first.id}",
+    project_volunteer_id: "#{Project_Volunteer.first.id}"
+
+    )
+
 puts "✅ Done seeding!"

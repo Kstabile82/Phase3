@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
-    has_many :project_animals
-    has_many :project_volunteers 
+    belongs_to :project_animals
+    belongs_to :project_volunteers 
     has_many :animals, through: :project_animals
     has_many :volunteers, through: :project_volunteers 
 

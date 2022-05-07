@@ -1,4 +1,5 @@
 class Volunteer < ActiveRecord::Base
+    belongs_to :rescue
     has_many :project_volunteers
     has_many :projects, through: :project_volunteers 
     has_many :project_animals, through: :projects
@@ -9,6 +10,14 @@ class Volunteer < ActiveRecord::Base
     Volunteer.all.map do |v|
        v.name
     end
+   end
+   
+   def self.by_name
+      self.all.order(name: :desc)
+   end
+
+   def self.vol_rescues(volunteer)
+      rescue_match = Rescue.where(id: volunteer.rescue_id)
    end
 
    #add a volunteer

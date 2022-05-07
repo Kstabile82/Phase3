@@ -1,9 +1,14 @@
 class Rescue < ActiveRecord::Base
-    has_many :animals
-    has_many :project_animals, through: :animals
-    has_many :projects, through: :project_animals
-    has_many :project_volunteers, through: :projects 
-    has_many :volunteers, through: :project_volunteers
+     has_many :volunteers
+     has_many :animals
+
+     #has_many :project_animals
+     #has_many :project_volunteers
+     #has_many :volunteers, through: :project_volunteers
+    #has_many :animals, through: :project_animals
+   # has_many :projects, through: :project_animals
+   # has_many :project_volunteers, through: :projects 
+   # has_many :volunteers, through: :project_volunteers
 
     #count unique animals with rescue id of id
     def rescue_animal_count
@@ -26,6 +31,10 @@ class Rescue < ActiveRecord::Base
            animal_arr << each_animal.name 
           end
           return animal_arr
+    end
+
+    def rescue_volunteer_list
+        self.volunteers 
     end
 
     #add a rescue

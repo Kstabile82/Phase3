@@ -13,9 +13,25 @@ class ApplicationController < Sinatra::Base
 
  get '/rescues/:id' do
    resq = Rescue.find(params[:id])
-   resq.to_json(include: :animals)
+  # resq.to_json(include: :animals )
+    resq.to_json(include: [
+      :animals,
+      :volunteers
+    ])
+  
 
  end
 
+ get '/rescues/:id/volunteers' do
+  resq = Rescue.find(params[:id])
+  rv = resq.volunteers
+  rv.to_json
+ end
+
+ get '/rescues/:id/animals' do
+  resq = Rescue.find(params[:id])
+  ra = resq.animals
+  ra.to_json
+ end
 
 end

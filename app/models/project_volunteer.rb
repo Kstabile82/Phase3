@@ -1,9 +1,9 @@
 class Project_Volunteer < ActiveRecord::Base
+    belongs_to :volunteer
     has_many :projects
-    has_many :volunteers
     has_many :project_animals, through: :projects
-    has_many :animals, through: :project_animals 
-
+    has_many :animals, through: :project_animals
+  
   #finds all the projects a specific volunteer is listed under
   def self.volunteer_projects(volunteer)
     proj_vol_match = Project_Volunteer.where(volunteer_id: volunteer.id)
