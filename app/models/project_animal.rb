@@ -1,9 +1,8 @@
-class Project_Animal < ActiveRecord::Base
+class ProjectAnimal < ActiveRecord::Base
     belongs_to :animal
-    #belongs_to :project
     has_many :projects 
-    has_many :project_volunteers, through: :projects
-    has_many :volunteers, through: :project_volunteers 
+    # has_many :project_volunteers, through: :projects
+    # has_many :volunteers, through: :project_volunteers 
 
    #finds all the projects a specific animal is listed under
    def self.animal_projects(animal)

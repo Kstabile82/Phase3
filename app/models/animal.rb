@@ -1,9 +1,8 @@
 class Animal < ActiveRecord::Base
     belongs_to :rescue
     has_many :project_animals
-    has_many :projects, through: :project_animals
-    has_many :project_volunteers, through: :projects
-    has_many :volunteers, through: :project_volunteers
+    # has_many :project_volunteers, through: :projects
+    # has_many :volunteers, through: :project_volunteers
    
     def self.all_animal_names
         Animal.all.map do |animal|

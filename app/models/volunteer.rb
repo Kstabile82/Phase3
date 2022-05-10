@@ -2,8 +2,8 @@ class Volunteer < ActiveRecord::Base
     belongs_to :rescue
     has_many :project_volunteers
     has_many :projects, through: :project_volunteers 
-    has_many :project_animals, through: :projects
-    has_many :animals, through: :project_animals
+   #  has_many :project_animals, through: :projects
+   #  has_many :animals, through: :project_animals
 
    #list all unique volunteers (add rescue ID to volunteers and update this to filter by rescue)
    def self.show_all
