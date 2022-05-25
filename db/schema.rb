@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_07_182256) do
+ActiveRecord::Schema.define(version: 2022_05_21_162628) do
 
   create_table "animals", force: :cascade do |t|
     t.string "breed"
@@ -29,12 +29,14 @@ ActiveRecord::Schema.define(version: 2022_05_07_182256) do
     t.integer "animal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "project_id"
   end
 
   create_table "project_volunteers", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "volunteer_id"
+    t.integer "project_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -43,8 +45,7 @@ ActiveRecord::Schema.define(version: 2022_05_07_182256) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "proj_type"
-    t.integer "project_animal_id"
-    t.integer "project_volunteer_id"
+    t.integer "rescue_id"
   end
 
   create_table "rescues", force: :cascade do |t|

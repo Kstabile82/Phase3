@@ -1,8 +1,9 @@
 class Project < ActiveRecord::Base
-    belongs_to :project_animal
-    belongs_to :project_volunteer 
-    # has_many :animals, through: :project_animal
-    # has_many :volunteers, through: :project_volunteer 
+    belongs_to :rescue
+    has_many :project_animals
+    has_many :project_volunteers
+    has_many :animals, through: :project_animals
+    has_many :volunteers, through: :project_volunteers
 
     def project_volunteer_count
         project_volunteer_arr = []

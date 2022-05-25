@@ -1,6 +1,7 @@
 class Rescue < ActiveRecord::Base
      has_many :volunteers
      has_many :animals
+     has_many :projects
 
      #has_many :project_animals
      #has_many :project_volunteers

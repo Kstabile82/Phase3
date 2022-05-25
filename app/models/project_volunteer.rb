@@ -1,40 +1,42 @@
 class ProjectVolunteer < ActiveRecord::Base
-    belongs_to :volunteer
-    has_many :projects
+  belongs_to :project
+  belongs_to :volunteer
+    # belongs_to :project, :primary_key => 'project_id'
+    # belongs_to :volunteer, :primary_key => 'volunteer_id'
     # has_many :project_animals, through: :projects
     # has_many :animals, through: :project_animals
   
   #finds all the projects a specific volunteer is listed under
-  def self.volunteer_projects(volunteer)
-    proj_vol_match = Project_Volunteer.where(volunteer_id: volunteer.id)
-    proj_vol_match.map do |v|
-      v_match = Project.find_by(id: v.project_id)
-          v_match.title
-    end
-  # Volunteer.find_by(id: proj_vol_match.volunteer_id) 
-  end
+#   def self.volunteer_projects(volunteer)
+#     proj_vol_match = Project_Volunteer.where(volunteer_id: volunteer.id)
+#     proj_vol_match.map do |v|
+#       v_match = Project.find_by(id: v.project_id)
+#           v_match.title
+#     end
+#   # Volunteer.find_by(id: proj_vol_match.volunteer_id) 
+#   end
 
-  #finds all the volunteers under a specific project
-  def self.list_volunteers(project)
-    proj = Project_Volunteer.where(project_id: project.id)
-      proj.map do |p|
-      p_vol = Volunteer.find_by(id: p.volunteer_id)
-      p_volunteer.name
-    end
-  end
+#   #finds all the volunteers under a specific project
+#   def self.list_volunteers(project)
+#     proj = Project_Volunteer.where(project_id: project.id)
+#       proj.map do |p|
+#       p_vol = Volunteer.find_by(id: p.volunteer_id)
+#       p_volunteer.name
+#     end
+#   end
   
-   #find count of unique volunteers with project_id of ?
-   def self.count_volunteers_on_proj(project)
-    proj = Project_Volunteer.where(project_id: project.id)
-    #remove duplicates
-    proj.length
-end
+#    #find count of unique volunteers with project_id of ?
+#    def self.count_volunteers_on_proj(project)
+#     proj = Project_Volunteer.where(project_id: project.id)
+#     #remove duplicates
+#     proj.length
+# end
 
-def self.count_projects_of_volunteer(volunteer)
-    vol_projects = Project_Volunteer.where(volunteer_id: volunteer.id)
-    #remove duplicates
-    vol_projects.length
-end
+# def self.count_projects_of_volunteer(volunteer)
+#     vol_projects = Project_Volunteer.where(volunteer_id: volunteer.id)
+#     #remove duplicates
+#     vol_projects.length
+# end
 
 =begin
    #add volunteer_id & project_id pair

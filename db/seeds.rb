@@ -30,7 +30,7 @@ Animal.create(
     rescue_id: "#{Rescue.first.id}"
     )
 
-    Volunteer.create(
+Volunteer.create(
     name: "Karina", 
     location: "Long Island", 
     rescue_id: "#{Rescue.first.id}"
@@ -45,50 +45,46 @@ Volunteer.create(
     location: "Queens, NY", 
     rescue_id: "#{Rescue.first.id}"
     )
-
-Project_Animal.create(
-    animal_id: "#{Animal.first.id}"
-
-)
-Project_Animal.create(
-    animal_id: "#{Animal.first.id}"
-)
-Project_Volunteer.create(
-    volunteer_id: "#{Volunteer.first.id}"
-)
-Project_Volunteer.create(
-    volunteer_id: "#{Volunteer.second.id}"
-)
-Project_Volunteer.create(
-    volunteer_id: "#{Volunteer.third.id}"
+Project.create(
+        title: "Lexi Fundraiser", 
+        proj_type: "Fundraiser",
+        rescue_id: "#{Rescue.first.id}"
 )
 Project.create(
-    title: "Lexi Fundraiser", 
-    proj_type: "Fundraiser",
-    project_animal_id: "#{Project_Animal.first.id}",
-    project_volunteer_id: "#{Project_Volunteer.first.id}"
-
-    )
+        title: "Hamilton Beach Rescue", 
+        proj_type: "Rescue",
+        rescue_id: "#{Rescue.first.id}"
+    
+)
 Project.create(
-    title: "Hamilton Beach Rescue", 
-    proj_type: "Rescue",
-    project_animal_id: "#{Project_Animal.first.id}",
-    project_volunteer_id: "#{Project_Volunteer.first.id}"
-
-    )
+        title: "Facebook Easter Campaign", 
+        proj_type: "Social Media Post",
+        rescue_id: "#{Rescue.first.id}"
+)
 Project.create(
-    title: "Facebook Easter Campaign", 
-    proj_type: "Social Media Post",
-    project_animal_id: "#{Project_Animal.first.id}",
-    project_volunteer_id: "#{Project_Volunteer.second.id}"
+        title: "April Event", 
+        proj_type: "Event",
+        rescue_id: "#{Rescue.first.id}"
+)
+ProjectAnimal.create(
+    animal_id: "#{Animal.first.id}",
+    project_id: "#{Project.first.id}"
+)
+ProjectAnimal.create(
+    animal_id: "#{Animal.first.id}",
+    project_id: "#{Project.second.id}"
 
-    )
-Project.create(
-    title: "April Event", 
-    proj_type: "Event",
-    project_animal_id: "#{Project_Animal.first.id}",
-    project_volunteer_id: "#{Project_Volunteer.first.id}"
+)
+ProjectVolunteer.create(
+    volunteer_id: "#{Volunteer.first.id}",
+)
+ProjectVolunteer.create(
+    volunteer_id: "#{Volunteer.second.id}",
+)
+ProjectVolunteer.create(
+    volunteer_id: "#{Volunteer.third.id}",
 
-    )
+)
+
 
 puts "✅ Done seeding!"
