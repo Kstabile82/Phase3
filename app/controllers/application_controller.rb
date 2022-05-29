@@ -46,6 +46,16 @@ end
   resq.to_json
  end
 
+ get '/projects/:id' do 
+  proj = Project.find(params[:id])
+  proj.to_json
+ end
+
+ get '/volunteers/:id' do
+  vol = Volunteer.find(params[:id])
+  vol.to_json
+ end
+
  get '/rescues/:id/volunteers/:volunteer_id' do
   resq = Rescue.find(params[:id]).volunteers.find(params[:volunteer_id])
   resq.to_json
@@ -87,6 +97,28 @@ patch '/animals/:id' do
   animalUpdate= Animal.find(params[:id])
   animalUpdate.update(params[:updatedAnimal])
   animalUpdate.to_json
+ end
+
+ post '/project' do
+  proj = Project.create(title: params[:title], rescue_id: params[:rescue_id], type: params[:type], proj_type: params[:proj_type], project_volunteers: params[:project_volunteers], project_animals: params[:project_animals])
+  anim.to_json
+end
+
+patch '/projects/:id' do
+  projectUpdate= Project.find(params[:id])
+  projectUpdate.update(params[:updatedProject])
+  projectUpdate.to_json
+ end
+
+ post '/volunteers' do
+  vol = Volunteer.create(name: params[:name], location: params[:location], talents: params[:talents], rescue_id: params[:rescue_id], project_volunteers: params[:project_volunteers])
+  vol.to_json
+end
+
+patch '/volunteers/:id' do
+  volUpdate= Volunteer.find(params[:id])
+  volUpdate.update(params[:updatedVolunteer])
+  volunteerUpdate.to_json
  end
 
 # patch '/volunteers/:id' do
