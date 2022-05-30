@@ -66,28 +66,6 @@ end
   resq.to_json
  end
 
-#  post "/rescues" do
-#   newRescue = Rescue.create(name: params[:name], location: params[:location])
-#   newRescue.to_json
-#  end
- 
-#  delete '/rescues/:id/animals/:animal_id' do
-#   anim = Rescue.find(params[:id]).animals.find(params[:animal_id])
-#   anim.destroy
-#   anim.to_json
-# end
-
-# delete '/rescues/:id/volunteers/:volunteer_id' do
-#   vol = Rescue.find(params[:id]).volunteers.find(params[:volunteer_id])
-#   vol.destroy
-#   vol.to_json
-# end
-
-# post '/rescues/:id/volunteers' do
-#   vol = Volunteer.create(location: params[:location], name: params[:name], talents: params[:talents])
-#   vol.to_json
-# end
-
 post '/animals' do
   anim = Animal.create(age: params[:age], rescue_id: params[:rescue_id], name: params[:name], sex: params[:sex], breed: params[:breed], kind: params[:kind], color: params[:color], adoption_status: params[:adoption_status], project_animals: params[:project_animals])
   anim.to_json
@@ -99,9 +77,9 @@ patch '/animals/:id' do
   animalUpdate.to_json
  end
 
- post '/project' do
-  proj = Project.create(title: params[:title], rescue_id: params[:rescue_id], type: params[:type], proj_type: params[:proj_type], project_volunteers: params[:project_volunteers], project_animals: params[:project_animals])
-  anim.to_json
+ post '/projects' do
+  proj = Project.create(title: params[:title], rescue_id: params[:rescue_id], proj_type: params[:proj_type], project_volunteers: params[:project_volunteers], project_animals: params[:project_animals])
+  proj.to_json
 end
 
 patch '/projects/:id' do
@@ -121,10 +99,22 @@ patch '/volunteers/:id' do
   volunteerUpdate.to_json
  end
 
-# patch '/volunteers/:id' do
-#   vol = Rescue.find(params[:id]).volunteers.find(params[:volunteer_id])
-#   vol.update(location: params[:location], name: params[:name], talents: params[:talents])
-#   vol.to_json
-# end
+ delete '/animals/:id' do
+  an = Animal.find(params[:id])
+  an.destroy
+  an.to_json
+ end
+
+ delete '/projects/:id' do
+  proj = Project.find(params[:id])
+  proj.destroy
+  proj.to_json
+ end
+
+ delete '/volunteers/:id' do
+  vol = Volunteer.find(params[:id])
+  vol.destroy
+  vol.to_json
+ end
 
 end
