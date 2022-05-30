@@ -39,6 +39,8 @@ end
   resq = Rescue.find(params[:id])
   rp = resq.projects
   rp.to_json(include: [ :project_volunteers, :project_animals ])
+  # rp.to_json(include: :project_volunteers)
+
  end
 
  get '/animals/:id' do
@@ -48,7 +50,7 @@ end
 
  get '/projects/:id' do 
   proj = Project.find(params[:id])
-  proj.to_json
+  proj.to_json(include: [ :project_volunteers, :project_animals ])
  end
 
  get '/volunteers/:id' do
