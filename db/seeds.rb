@@ -29,21 +29,23 @@ Animal.create(
     adoption_status: true,
     rescue_id: "#{Rescue.first.id}"
     )
-
 Volunteer.create(
     name: "Karina", 
     location: "Long Island", 
-    rescue_id: "#{Rescue.first.id}"
+    rescue_id: "#{Rescue.first.id}",
+    talents: "Website"
     )
 Volunteer.create(
     name: "Michelle", 
     location: "Long Island", 
-    rescue_id: "#{Rescue.first.id}"
+    rescue_id: "#{Rescue.first.id}",
+    talents: "Social Media"
     )
 Volunteer.create(
     name: "Vivian", 
     location: "Queens, NY", 
-    rescue_id: "#{Rescue.first.id}"
+    rescue_id: "#{Rescue.first.id}",
+    talents: "Fostering"
     )
 Project.create(
         title: "Lexi Fundraiser", 
@@ -71,19 +73,36 @@ ProjectAnimal.create(
     project_id: "#{Project.first.id}"
 )
 ProjectAnimal.create(
+    animal_id: "#{Animal.second.id}",
+    project_id: "#{Project.second.id}"
+)
+ProjectAnimal.create(
+    animal_id: "#{Animal.third.id}",
+    project_id: "#{Project.third.id}"
+)
+ProjectAnimal.create(
     animal_id: "#{Animal.first.id}",
     project_id: "#{Project.second.id}"
-
 )
-ProjectVolunteer.create(
-    volunteer_id: "#{Volunteer.first.id}",
+ProjectAnimal.create(
+    animal_id: "#{Animal.second.id}",
+    project_id: "#{Project.first.id}"
 )
 ProjectVolunteer.create(
     volunteer_id: "#{Volunteer.second.id}",
+    project_id: "#{Project.second.id}"
+)
+ProjectVolunteer.create(
+    volunteer_id: "#{Volunteer.first.id}",
+    project_id: "#{Project.first.id}"
+)
+ProjectVolunteer.create(
+    volunteer_id: "#{Volunteer.second.id}",
+    project_id: "#{Project.first.id}"
 )
 ProjectVolunteer.create(
     volunteer_id: "#{Volunteer.third.id}",
-
+    project_id: "#{Project.second.id}"
 )
 
 
