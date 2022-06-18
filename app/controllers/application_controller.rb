@@ -78,17 +78,24 @@ end
   resq.to_json
  end
 
- get '/project_animals' do 
-  ProjectAnimals.all.to_json
- end
-
- get '/project_volunteerss' do 
-  ProjectVolunteer.all.to_json
- end
+#  get '/project_animals' do 
+#   ProjectAnimals.all.to_json
+#  end
 
 #  get '/project_volunteers' do 
-#   ProjectVolunteers.all.to_json
+#   ProjectVolunteer.all.to_json
 #  end
+
+ get '/project_volunteers/:id' do
+  projvol = ProjectVolunteer.find(params[:id])
+  projvol.to_json
+ end
+
+ get '/project_animals/:id' do
+  projan = ProjectAnimal.find(params[:id])
+  projan.to_json
+ end
+
 
  post '/project_animals' do
   projAn = ProjectAnimal.create(project_id: params[:project_id], animal_id: params[:animal_id])
@@ -157,5 +164,10 @@ patch '/volunteers/:id' do
   projVol.to_json
  end
 
+ delete '/project_animals/:id' do
+  projAn = ProjectAnimals.find(params[:id])
+  projAn.destroy
+  projAn.to_json
+ end
 
 end
