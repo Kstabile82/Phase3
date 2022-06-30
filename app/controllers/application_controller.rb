@@ -38,7 +38,7 @@ end
  get '/rescues/:id/projects' do
   resq = Rescue.find(params[:id])
   rp = resq.projects
-  rp.to_json(include: [ :project_volunteers, :project_animals, :volunteers ])
+  rp.to_json(include: [ :project_volunteers, :project_animals, :volunteers, :animals ])
   # rp.to_json(include: :project_volunteers) //get rid of Project-volunteers
  end
 
