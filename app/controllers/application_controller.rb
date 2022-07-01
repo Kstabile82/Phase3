@@ -165,7 +165,7 @@ patch '/volunteers/:id' do
  end
 
  delete '/project_animals/:id' do
-  projAn = ProjectAnimals.find(params[:id])
+  projAn = ProjectAnimal.find(params[:id])
   projAn.destroy
   projAn.to_json
  end
