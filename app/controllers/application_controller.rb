@@ -96,6 +96,10 @@ end
   projan.to_json
  end
 
+ post "/rescues" do
+  rescu = Rescue.create(name: params[:name], location: params[:location])
+  rescu.to_json
+ end
 
  post '/project_animals' do
   projAn = ProjectAnimal.create(project_id: params[:project_id], animal_id: params[:animal_id])
@@ -134,10 +138,22 @@ patch '/projects/:id' do
   vol.to_json
 end
 
+patch "/rescues" do
+  rescueUpdate= Rescue.find(params[:id])
+  rescueUpdate.update(params[:updatedRescue])
+  rescueUpdate.to_json
+ end
+
 patch '/volunteers/:id' do
   volUpdate= Volunteer.find(params[:id])
   volUpdate.update(params[:updatedVolunteer])
   volunteerUpdate.to_json
+ end
+
+ delete '/rescues/:id' do 
+  resc = Rescue.find(params[:id])
+  resc.destroy
+  resc.to_json
  end
 
  delete '/animals/:id' do
