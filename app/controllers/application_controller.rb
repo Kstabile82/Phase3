@@ -49,7 +49,7 @@ end
 
  get '/projects/:id' do 
   proj = Project.find(params[:id])
-  proj.to_json(include: [ :project_volunteers, :project_animals, volunteers ])
+  proj.to_json(include: [ :project_volunteers, :project_animals ])
  end
 
  get '/projects/:id/project_volunteers' do 
