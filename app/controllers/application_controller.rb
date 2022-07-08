@@ -1,7 +1,6 @@
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
-  # Add your routes here
   get "/" do
     { message: "Welcome to my animal rescue app!" }.to_json
   end
@@ -77,14 +76,6 @@ end
   resq = Rescue.find(params[:id]).projects.find(params[:project_id]).project_volunteers
   resq.to_json
  end
-
-#  get '/project_animals' do 
-#   ProjectAnimals.all.to_json
-#  end
-
-#  get '/project_volunteers' do 
-#   ProjectVolunteer.all.to_json
-#  end
 
  get '/project_volunteers/:id' do
   projvol = ProjectVolunteer.find(params[:id])
